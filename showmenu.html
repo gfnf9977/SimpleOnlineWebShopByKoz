@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Menu</title>
+    <link rel="stylesheet" type="text/css" href="showmenu.css">
+    <style>
+        .menu-item {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="menu-header">
+        <a href="userpage.html"><img src="https://c.files.bbci.co.uk/9017/production/_105278863_gettyimages-855098134.jpg" alt="Логотип" class="logo-img"></a>
+        <h2>Меню</h2>
+    </div>
+    <div id="menuList" class="menu-list"></div>
+</div>
+
+<script src="menu.js"></script>
+<script>
+    function displayMenuItems() {
+        let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+        let menuList = document.getElementById('menuList');
+        menuList.innerHTML = '';
+
+        // Розділити елементи меню за категоріями та впорядкувати їх по алфавіту
+        let categories = {};
+        menuItems.forEach(item => {
+            if (!categories[item.category]) {
+                categories[item.category] = [];
+            }
+            categories[item.category].push(item);
+        });
+
+        Object.keys(categories).sort().forEach(category => {
+            let categoryItems = categories[category];
+            let categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('menu-category');
+
+            let categoryHeader = document.createElement('h3');
+            categoryHeader.textContent = category;
+            categoryDiv.appendChild(categoryHeader);
+
+            categoryItems.sort((a, b) => a.name.localeCompare(b.name)).forEach(item => {
+                let itemBlock = document.createElement('div');
+                itemBlock.classList.add('menu-item');
+
+                // Вивід фотографії страви
+                let itemImage = document.createElement('img');
+                itemImage.src = item.photo;
+                itemImage.alt = item.name;
+                itemBlock.appendChild(itemImage);
+
+                // Додавання інформації про страву
+                let itemName = document.createElement('p');
+                itemName.classList.add('item-name');
+                itemName.textContent = item.name;
+                itemBlock.appendChild(itemName);
+
+                let itemPrice = document.createElement('p');
+                itemPrice.classList.add('item-price');
+                itemPrice.textContent = `Ціна: ${item.price} грн`;
+                itemBlock.appendChild(itemPrice);
+
+                let itemIngredients = document.createElement('p');
+                itemIngredients.classList.add('item-ingredients');
+                itemIngredients.textContent = `Інгредієнти: ${item.ingredients}`;
+                itemBlock.appendChild(itemIngredients);
+
+                categoryDiv.appendChild(itemBlock);
+                // Додаємо роздільник між стравами
+                let divider = document.createElement('hr');
+                categoryDiv.appendChild(divider);
+            });
+
+            menuList.appendChild(categoryDiv);
+        });
+    }
+
+    window.onload = displayMenuItems;
+</script>
+</body>
+</html>

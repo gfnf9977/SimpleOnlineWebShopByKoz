@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагувати Меню</title>
+    <link rel="stylesheet" href="editmenu.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+<div class="container">
+    <h2>Введіть інформацію про страву, яку бажаєте додати до меню нашого сервісу</h2>
+    <form id="addItemForm" enctype="multipart/form-data">
+        <div class="input-box">
+            <label for="itemName">Страва (скільки становить 1 порція):</label>
+            <input type="text" id="itemName" name="itemName" required>
+        </div>
+        <div class="input-box">
+            <label for="itemPrice">Ціна в UAH:</label>
+            <input type="text" id="itemPrice" name="itemPrice" required>
+        </div>
+        <div class="input-box">
+            <label for="itemCategory">Виберіть категорію страви:</label>
+            <select id="itemCategory" name="itemCategory">
+                <option value="Сніданки">Сніданки</option>
+                <option value="Супи та Бульйони">Супи та Бульйони</option>
+                <option value="Салати">Салати</option>
+                <option value="Основні страви">Основні страви</option>
+                <option value="Піца">Піца</option>
+                <option value="Снеки та закуски">Снеки та закуски</option>
+                <option value="Десерти">Десерти</option>
+                <option value="Напої">Напої</option>
+                <option value="Алкогольні напої">Алкогольні напої</option>
+                <option value="Суші-сети">Суші-сети</option>
+                <!-- Додайте інші категорії за потребою -->
+            </select>
+        </div>
+        <div class="input-box">
+            <label for="itemIngredients">Інгредієнти чи опис:</label>
+            <textarea id="itemIngredients" name="itemIngredients" required></textarea>
+        </div>
+        <div class="input-box">
+            <label for="itemPhoto">Додайте задля більшої привабливості з боку клієнтів (формат JPG або PNG):</label>
+            <input type="file" id="itemPhoto" name="itemPhoto" accept=".jpg, .jpeg, .png">
+        </div>
+        <button type="submit" class="btn">Додати до меню</button>
+    </form>
+</div>
+
+<script src="menu.js"></script>
+<script>
+    document.getElementById('addItemForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var itemName = document.getElementById('itemName').value;
+        var itemPrice = document.getElementById('itemPrice').value;
+        var itemCategory = document.getElementById('itemCategory').value;
+        var itemIngredients = document.getElementById('itemIngredients').value;
+        var itemPhoto = document.getElementById('itemPhoto').files[0];
+        addItemToMenu(itemName, itemPrice, itemCategory, itemIngredients, itemPhoto);
+        window.location.href = 'viewmenu.html';
+    });
+</script>
+</body>
+</html>

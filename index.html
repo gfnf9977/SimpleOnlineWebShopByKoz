@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Опис сторінки">
+    <meta name="keywords" content="ключові слова">
+    <link rel="stylesheet" href="loginstyle.css">
+    <title>Document</title>
+</head>
+<body>
+<section>
+    <form id="loginForm">
+        <h1>Login</h1>
+        <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" id="username" required>
+            <label for="username">Ім'я користувача</label>
+        </div>
+        <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="password" required>
+            <label for="password">Пароль</label>
+        </div>
+        <button type="submit">Увійти</button>
+    </form>
+</section>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="login.js"></script>
+</body>
+</html>
