@@ -93,9 +93,9 @@
         menuItems.forEach(item => {
             let itemName = item.querySelector('.item-name').textContent.toLowerCase();
             if (itemName.includes(searchValue)) {
-                item.style.display = 'block'; // Показати елемент, якщо він відповідає критеріям пошуку
+                item.style.display = 'block'; 
             } else {
-                item.style.display = 'none'; // Приховати елемент, якщо він не відповідає критеріям пошуку
+                item.style.display = 'none';
             }
         });
     });
