@@ -14,9 +14,8 @@
 <body>
 <div class="container">
     <div class="menu-header">
-        <a href="userpage.html"><img src="https://c.files.bbci.co.uk/9017/production/_105278863_gettyimages-855098134.jpg" alt="Логотип" class="logo-img"></a>
+        <a href="userpage.html"><img src="logo1.png"  alt="Логотип" class="logo-img"></a>
         <h2>Меню</h2>
-        <!-- Додано поле для введення тексту для пошуку -->
         <input type="text" id="searchInput" placeholder="Пошук...">
     </div>
     <div id="menuList" class="menu-list"></div>
@@ -29,7 +28,6 @@
         let menuList = document.getElementById('menuList');
         menuList.innerHTML = '';
 
-        // Розділити елементи меню за категоріями та впорядкувати їх по алфавіту
         let categories = {};
         menuItems.forEach(item => {
             if (!categories[item.category]) {
@@ -51,13 +49,11 @@
                 let itemBlock = document.createElement('div');
                 itemBlock.classList.add('menu-item');
 
-                // Вивід фотографії страви
                 let itemImage = document.createElement('img');
                 itemImage.src = item.photo;
                 itemImage.alt = item.name;
                 itemBlock.appendChild(itemImage);
 
-                // Додавання інформації про страву
                 let itemName = document.createElement('p');
                 itemName.classList.add('item-name');
                 itemName.textContent = item.name;
@@ -74,7 +70,6 @@
                 itemBlock.appendChild(itemIngredients);
 
                 categoryDiv.appendChild(itemBlock);
-                // Додаємо роздільник між стравами
                 let divider = document.createElement('hr');
                 categoryDiv.appendChild(divider);
             });
@@ -85,7 +80,7 @@
 
     window.onload = displayMenuItems;
 
-    // Функція для фільтрації елементів меню за введеним користувачем текстом
+
     document.getElementById('searchInput').addEventListener('input', function() {
         let searchValue = this.value.trim().toLowerCase();
         let menuItems = document.querySelectorAll('.menu-item');
@@ -93,7 +88,7 @@
         menuItems.forEach(item => {
             let itemName = item.querySelector('.item-name').textContent.toLowerCase();
             if (itemName.includes(searchValue)) {
-                item.style.display = 'block'; 
+                item.style.display = 'block';
             } else {
                 item.style.display = 'none';
             }

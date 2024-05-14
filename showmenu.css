@@ -32,18 +32,38 @@ body {
     background-color: #0056b3;
 }
 
+.menu-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.menu-header h2 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    color: #333;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .menu-list {
     list-style-type: none;
     padding: 0;
 }
 
-.menu-list h3 {
+.menu-category {
     margin-top: 40px;
     border-top: 2px solid #ccc;
     padding-top: 20px;
 }
 
-.menu-list li {
+.menu-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,28 +75,24 @@ body {
     transition: transform 0.3s ease;
 }
 
-.menu-list li:hover {
+.menu-item:hover {
     transform: translateY(-5px);
 }
 
-.menu-list img {
+.menu-item img {
     width: 200px;
     height: auto;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
-.menu-list span {
+.item-name, .item-price, .item-ingredients {
     text-align: center;
     margin-bottom: 10px;
 }
 
 .logo-img {
-    display: block;
-    margin: 0 auto 20px;
     width: 150px; /* Зменшено ширину */
     height: auto;
     border-radius: 50%;
 }
-
-</style>
