@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Order</title>
-    <link rel="stylesheet" href="createorder.css"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="createorder.css">
 </head>
 <body>
 <div class="container">
-    <a href="userpage.html"><img src= "logo1.png" alt="Логотип" class="logo-img"></a>
-    <h2>Створення смачнючого перекусу</h2>
-    <div id="menuList"></div>
-    <label for="customerName">Як до Вас звертатися</label>
-    <input type="text" id="customerName" name="customerName">
-    <label for="customerPhone">Ваш телефон: +380</label>
-    <input type="tel" id="customerPhone" name="customerPhone">
-    <label for="customerAddress">Куди доставити ваше замовлення:</label>
-    <input type="text" id="customerAddress" name="customerAddress">
-    <button id="submitOrder">Оформити замовлення</button>
-    <div id="orderSummary"></div> <!-- Блок для виведення замовлення -->
+    <div class="menu-header">
+        <a href="userpage.html"><img src="logo1.png" alt="Логотип" class="logo-img"></a>
+        <h2>Створення смачнючого перекусу</h2>
+    </div>
+    <div id="menuList" class="menu-list"></div>
+    <div class="form-group">
+        <label for="customerName">Як до Вас звертатися</label>
+        <input type="text" id="customerName" name="customerName">
+    </div>
+    <div class="form-group">
+        <label for="customerPhone">Ваш телефон: +380</label>
+        <input type="tel" id="customerPhone" name="customerPhone">
+    </div>
+    <div class="form-group">
+        <label for="customerAddress">Куди доставити ваше замовлення:</label>
+        <input type="text" id="customerAddress" name="customerAddress">
+    </div>
+    <button id="submitOrder" class="submit-button">Оформити замовлення</button>
+    <div id="orderSummary" class="order-summary"></div>
 </div>
 
 <script src="order.js"></script>
-<script>
-    // JavaScript код тут
-</script>
 </body>
 </html>
