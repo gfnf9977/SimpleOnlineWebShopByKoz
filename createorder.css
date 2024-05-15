@@ -1,103 +1,55 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo-img {
-  width: 100px;
-  height: auto;
-}
-
-.menu-list {
-  margin-bottom: 20px;
-}
-
-.menuItem {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
+/* Оболочка для меню */
+#menuList {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-.menuItem h3 {
-  margin: 0;
-  flex-basis: 100%;
-}
-
-.menuItem p {
-  margin: 0;
-}
-
-.menuItem img {
-  width: 100px;
-  height: auto;
-  margin-right: 10px;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.submit-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
+/* Элемент меню */
+.menuItem {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  max-width: 300px;
+  overflow: hidden;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+}
+
+/* Изображение элемента меню */
+.menuItem img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Название элемента меню */
+.menuItem h3 {
+  color: #333;
+  font-size: 1.2em;
   margin: 10px 0;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
-.submit-button:hover {
-  background-color: #3e8e41;
+/* Описание элемента меню */
+.menuItem p {
+  color: #666;
+  font-size: 0.9em;
+  margin: 0 10px 10px;
 }
 
-.order-summary {
-  border: 0px solid #ccc;
-  padding: 10px;
-  margin-top: 20px;
+/* Стоимость элемента меню */
+.menuItem .price {
+  color: #f00;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.order-summary p {
-  margin: 0;
-}
-
-.order-summary ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.order-summary li {
-  margin-bottom: 5px;
+/* Количество элементов меню */
+.menuItem input[type="number"] {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  padding: 5px;
+  width: 50px;
 }
