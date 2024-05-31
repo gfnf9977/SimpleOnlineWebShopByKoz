@@ -92,7 +92,7 @@ body {
 }
 
 .logo-img {
-    width: 150px; /* Зменшено ширину */
+    width: 150px;
     height: auto;
     border-radius: 50%;
 }

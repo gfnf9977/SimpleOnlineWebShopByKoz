@@ -30,7 +30,6 @@
         let menuList = document.getElementById('menuList');
         menuList.innerHTML = '';
 
-        // Розділити елементи меню за категоріями
         let categories = {};
         menuItems.forEach(item => {
             if (!categories[item.category]) {
@@ -42,7 +41,6 @@
         Object.keys(categories).forEach(category => {
             let categoryItems = categories[category];
 
-            // Відображення назви категорії
             let categoryContainer = document.createElement('div');
             categoryContainer.classList.add('category');
 
@@ -57,7 +55,6 @@
                 let listItem = document.createElement('li');
                 listItem.classList.add('menu-item');
 
-                // Вивід фотографії страви
                 let itemImage = document.createElement('img');
                 itemImage.src = item.photo;
                 itemImage.alt = item.name;
