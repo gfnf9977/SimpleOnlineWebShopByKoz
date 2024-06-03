@@ -8,7 +8,6 @@ window.onload = function() {
             let orderContainer = document.createElement('div');
             orderContainer.classList.add('order-container');
 
-            // Додавання даних замовника
             let customerInfo = document.createElement('p');
             customerInfo.textContent = `Замовив: ${orderData.name}, Номер телефону: +380${orderData.phone}, Адреса: ${orderData.address}, Дата: ${new Date(orderData.timestamp).toLocaleString()}`;
             orderContainer.appendChild(customerInfo);
@@ -56,25 +55,20 @@ window.onload = function() {
 };
 
 function acceptOrder(index, orderContainer) {
-    // Повідомлення про прийняття замовлення
     alert('Замовлення прийнято!');
 
-    // Зміна статусу замовлення
     let orders = JSON.parse(localStorage.getItem('orders'));
     orders[index].status = 'accepted';
     localStorage.setItem('orders', JSON.stringify(orders));
 
-    // Додавання класу для індикації статусу
     orderContainer.classList.add('accepted');
 }
 
 function rejectOrder(index, orderContainer) {
-    // Видалення замовлення
     let orders = JSON.parse(localStorage.getItem('orders'));
     orders.splice(index, 1);
     localStorage.setItem('orders', JSON.stringify(orders));
 
-    // Додавання класу для індикації статусу
     orderContainer.classList.add('rejected');
     setTimeout(() => {
         orderContainer.style.display = 'none';
@@ -82,9 +76,7 @@ function rejectOrder(index, orderContainer) {
 }
 
 function completeOrder(orderContainer) {
-    // Додавання класу для індикації статусу "Виконано"
     orderContainer.classList.add('completed');
-    // Через 3 секунди зникнення блоку замовлення
     setTimeout(() => {
         orderContainer.style.display = 'none';
     }, 800);
