@@ -13,7 +13,7 @@ window.onload = function() {
 
     Object.keys(groupedMenuItems).forEach(category => {
         let categoryItems = groupedMenuItems[category];
-        categoryItems.sort((a, b) => a.name.localeCompare(b.name)); // Сортуємо за назвою страви
+        categoryItems.sort((a, b) => a.name.localeCompare(b.name)); 
 
         let categoryHeader = document.createElement('h2');
         categoryHeader.textContent = category;
