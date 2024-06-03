@@ -3,7 +3,6 @@ window.onload = function() {
     let menuList = document.getElementById('menuList');
     let orderSummary = document.getElementById('orderSummary');
 
-    // Групуємо елементи меню за категоріями
     let groupedMenuItems = {};
     menuItems.forEach(item => {
         if (!groupedMenuItems[item.category]) {
@@ -12,7 +11,6 @@ window.onload = function() {
         groupedMenuItems[item.category].push(item);
     });
 
-    // Виводимо кожну категорію з відсортованими елементами меню
     Object.keys(groupedMenuItems).forEach(category => {
         let categoryItems = groupedMenuItems[category];
         categoryItems.sort((a, b) => a.name.localeCompare(b.name)); // Сортуємо за назвою страви
@@ -71,11 +69,10 @@ window.onload = function() {
         let menuItems = document.querySelectorAll('.menuItem');
         menuItems.forEach(menuItem => {
             let itemName = menuItem.querySelector('h3').textContent;
-            let itemPriceText = menuItem.querySelectorAll('p')[1].textContent.split(' ')[1]; // Отримуємо ціну як текст
-            let itemPrice = parseFloat(itemPriceText); // Перетворюємо текст на число
+            let itemPriceText = menuItem.querySelectorAll('p')[1].textContent.split(' ')[1];
+            let itemPrice = parseFloat(itemPriceText);
             let quantity = parseInt(menuItem.querySelector('input').value);
 
-            // Перевіряємо, чи кількість страв більше 0 перед додаванням до загального замовлення
             if (quantity > 0) {
                 let itemTotalCost = quantity * itemPrice;
 
@@ -89,13 +86,10 @@ window.onload = function() {
             }
         });
 
-        // Додавання вартості доставки
         totalCost += 40;
 
-        // Перевіряємо, чи всі кількості страв дорівнюють нулю
         let allQuantitiesZero = orderedItems.every(item => item.quantity === 0);
 
-        // Якщо всі кількості страв дорівнюють нулю, або поля для адреси чи телефону порожні, не надсилай замовлення
         let customerName = document.getElementById('customerName').value;
         let customerPhone = document.getElementById('customerPhone').value;
         let customerAddress = document.getElementById('customerAddress').value;
@@ -105,15 +99,12 @@ window.onload = function() {
             return;
         }
 
-        // Очищаємо блок замовлення перед виведенням нового
         orderSummary.innerHTML = '';
 
-        // Виводимо дані замовника у вигляді рядка
         let customerInfo = document.createElement('p');
         customerInfo.textContent = `Замовив: ${customerName}, Телефон: +380${customerPhone}, Адреса доставки: ${customerAddress}`;
         orderSummary.appendChild(customerInfo);
 
-        // Виводимо замовлення у вигляді списку на сторінці
         let orderList = document.createElement('ul');
         Object.keys(itemCosts).forEach(itemName => {
             let listItem = document.createElement('li');
@@ -121,25 +112,20 @@ window.onload = function() {
             orderList.appendChild(listItem);
         });
 
-        // Додавання вартості доставки до чеку
         let deliveryItem = document.createElement('li');
         deliveryItem.textContent = `Доставка: 40 грн`;
         orderList.appendChild(deliveryItem);
 
         orderSummary.appendChild(orderList);
 
-        // Додаємо загальну суму за замовлення
         let totalCostElement = document.createElement('p');
         totalCostElement.textContent = `Загальна вартість: ${totalCost} грн`;
         orderSummary.appendChild(totalCostElement);
 
-        // Отримуємо масив замовлень з localStorage або створюємо новий масив, якщо даних немає
         let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-        // Додаємо нове замовлення до масиву
         orders.push({ name: customerName, phone: customerPhone, address: customerAddress, items: orderedItems, totalCost: totalCost, timestamp: Date.now() });
 
-        // Зберігаємо оновлений масив замовлень у localStorage
         localStorage.setItem('orders', JSON.stringify(orders));
     }
 };
