@@ -1,6 +1,3 @@
-// Збереження нового елемента меню в localStorage
-
-// Отримання та відображення елементів меню на сторінці перегляду меню
 function displayMenuItems() {
     let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
     let menuList = document.getElementById('menuList');
@@ -21,7 +18,7 @@ function addItemToMenu(name, price, category, ingredients, photo) {
         menuItems.push(menuItem);
         localStorage.setItem('menuItems', JSON.stringify(menuItems));
     };
-    reader.readAsDataURL(photo); // Конвертуємо фото в Data URL
+    reader.readAsDataURL(photo);
 }
 
 window.onload = displayMenuItems;
