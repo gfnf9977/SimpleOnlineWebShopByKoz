@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'poppins',sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -26,6 +26,7 @@ section {
     border-radius: 20px;
     backdrop-filter: blur(55px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem 3rem;
@@ -90,6 +91,7 @@ button {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.4s ease;
+    margin-top: 1rem;
 }
 
 button:hover {

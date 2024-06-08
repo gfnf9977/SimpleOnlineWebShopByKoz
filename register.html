@@ -6,28 +6,32 @@
     <meta name="description" content="Опис сторінки">
     <meta name="keywords" content="ключові слова">
     <link rel="stylesheet" href="loginstyle.css">
-    <title>Сервіс доставки їжі</title>
+    <title>Реєстрація</title>
 </head>
 <body>
 <section>
-    <form id="loginForm">
-        <h1>Login</h1>
+    <form id="registerForm">
+        <h1>Реєстрація</h1>
         <div class="inputbox">
             <ion-icon name="person-outline"></ion-icon>
             <input type="text" id="username" required>
             <label for="username">Ім'я користувача</label>
         </div>
         <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" id="email" required>
+            <label for="email">Електронна пошта</label>
+        </div>
+        <div class="inputbox">
             <ion-icon name="lock-closed-outline"></ion-icon>
             <input type="password" id="password" required>
             <label for="password">Пароль</label>
         </div>
-        <button type="submit">Увійти</button>
+        <button type="submit">Зареєструватися</button>
     </form>
-    <button onclick="location.href='register.html';">Зареєструватися</button>
 </section>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="login.js"></script>
+<script src="register.js"></script>
 </body>
 </html>
